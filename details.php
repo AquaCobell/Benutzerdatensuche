@@ -1,5 +1,5 @@
 <?php
-require_once ("lib/data.php");
+require "lib/data.php";
 
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
 $data = getDataperID($id);

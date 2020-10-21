@@ -23,7 +23,7 @@
     <?php
 
 
-   require_once ("lib/data.php");
+   require "lib/data.php";
    //include "details.php";
 
     //VAR
@@ -52,7 +52,7 @@
                     id="filter"
                     name="filter"
                     class="form-control pl-2 pr-2"
-                    maxlength="25"
+                    maxlength="30"
                     value="<?= htmlspecialchars($filter)?>"
             />
             <input type="submit" name="submit" class="btn btn-primary ml-2" value="Suchen"/>
@@ -62,7 +62,7 @@
         </form>
     </div>
 
-    <table class="table table-striped users">
+    <table class="table table-striped users table-borderless ">
         <tbody>
         <tr>
             <th>Name</th>
@@ -71,7 +71,7 @@
         </tr>
         <?php
         if (sizeof($data)==0){
-            echo "<tr class='alert alert-dark'><td colspan='3'>Keine Einträge gefunden</td></tr>";
+            echo "<tr class='alert alert-dismissible'><td colspan='3'>Keine Einträge gefunden</td></tr>";
         }
         foreach ($data as $row) {
             ?>
