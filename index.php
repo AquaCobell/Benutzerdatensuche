@@ -23,7 +23,8 @@
     <?php
 
 
-   require "lib/data.php";
+   require_once ("lib/data.php");
+   //include "details.php";
 
     //VAR
     $filter = "";
@@ -35,9 +36,10 @@
 
         // double-check: zuerst pruefen ob die Daten im Request enthalten sein, dann auslesen
         $filter = isset($_POST['filter']) ? $_POST['filter'] : ""; //check if not null
-        $data = getFilterdData($filter);
+        $data = getfilteredData($filter);
     } else {
-            //$data = getAllData();
+            $data = getAllData();
+
         }
 
         ?>
@@ -69,7 +71,7 @@
         </tr>
         <?php
         if (sizeof($data)==0){
-            echo "<tr class='alert alert-dark><td colspan='3'>Keine Einträge gefunden</td></tr>";
+            echo "<tr class='alert alert-dark'><td colspan='3'>Keine Einträge gefunden</td></tr>";
         }
         foreach ($data as $row) {
             ?>
@@ -77,7 +79,7 @@
                 <td><a href="details.php?id=<?= $row['id'] ?>"><?=$row['firstname']. " ". $row['lastname'] ?></a>
                 </td>
                 <td><?= $row['email'] ?></td>
-                <td><?= formDate($row['birthdate']) ?></td>
+                <td><?= $row['birthdate'] ?></td>
             </tr>
             <?php
         }

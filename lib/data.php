@@ -4,31 +4,34 @@
 function getfilteredData($filter)
 {
     $data = getAllData();
-    $return = 0;
+    $return = [];
 
     foreach($data as $name)
     {
 
-        if(stripos($name[firstname],$filter) == true or stripos($name[lastname],$filter) == true or stripos($name[],$filter) == true )
+        if(stripos($name['firstname'], $filter) !== FALSE || stripos($name['lastname'],$filter) !== FALSE || stripos($name['email'],$filter) !== FALSE )
         {
-            $return = $name;
+            $return[] = $name;
         }
-        return $return;
+
     }
+    return $return;
+
 }
 
 function getDataperID($id)
 {
     $data = getAllData();
-    $return = 0;
+
 
     foreach($data as $daten)
     {
-        if($daten[id] == $id)
+        if($daten['id'] == $id)
         {
-            $return = $daten;
+            return $daten;
         }
     }
+    return null;
 }
 
 function getAllData()
