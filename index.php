@@ -37,10 +37,11 @@
         // double-check: zuerst pruefen ob die Daten im Request enthalten sein, dann auslesen
         $filter = isset($_POST['filter']) ? $_POST['filter'] : ""; //check if not null
         $data = getfilteredData($filter);
-    } else {
-            $data = getAllData();
-
-        }
+    }
+    else
+    {
+        $data = getAllData();
+    }
 
         ?>
 
@@ -79,7 +80,7 @@
                 <td><a href="details.php?id=<?= $row['id'] ?>"><?=$row['firstname']. " ". $row['lastname'] ?></a>
                 </td>
                 <td><?= $row['email'] ?></td>
-                <td><?= $row['birthdate'] ?></td>
+                <td><?= formDate($row['birthdate']) ?></td>
             </tr>
             <?php
         }

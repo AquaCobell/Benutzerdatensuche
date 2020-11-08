@@ -34,6 +34,15 @@ function getDataperID($id)
     return null;
 }
 
+function formDate($date)  //englische Format in unser Datum Format
+{
+    global $errors; // Zugriff auf die globale Fehlervariable
+
+    return date_format(date_create($date),"d.m.Y");
+}
+
+
+
 function getAllData()
 {
     return [
@@ -838,6 +847,10 @@ function getAllData()
         "birthdate" => "1991-07-06",
         "street" => "Rusk"
     ]];
+
+
+
+
 }
 
 

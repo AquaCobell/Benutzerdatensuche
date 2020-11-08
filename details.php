@@ -28,7 +28,7 @@ $data = getDataperID($id);
         echo "<p class='alert alert-danger'>Benutzer nicht gefunden</p>";
     }else {
         ?>
-        <table class="table">
+        <table class="table table-striped users table-borderless ">
             <tbody>
             <tr>
                 <td>Vorname</td>
@@ -40,7 +40,7 @@ $data = getDataperID($id);
             </tr>
             <tr>
                 <td>Geburtsdatum</td>
-                <td><?= $data['birthdate'] ?></td>
+                <td><?= formDate($data['birthdate'] )?></td>
             </tr>
             <tr>
                 <td>E-Mail</td>
